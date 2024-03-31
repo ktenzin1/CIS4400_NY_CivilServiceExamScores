@@ -1,4 +1,4 @@
-# CIS4400_HW1
+# CIS4400_HW1 (Private GitHub project as of now)
 This project involves extracting source data from NYC OpenData, and storing it first in Google Cloud. The source data is the results for New York State Math exams from 2013-2023. After data is stored in Google Cloud, data will be cleaned, transformed and finally loaded into MongoDB data warehouse.
 
 So step 1: Source data to Google Cloud (GC)
