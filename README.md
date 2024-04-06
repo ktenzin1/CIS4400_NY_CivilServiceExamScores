@@ -32,7 +32,14 @@ Firstly, created a github repository called CIS4400_HW1, signed into my github a
 9. Data sourcing and storage completed.
 
 Step 2: Dimensional Modeling
-
+1. Analyzed the business process and the requirements again. Since the project is to analyze the performance of the candidates in the NY civil service exam, the grain of dimensional modeling is each candidate. I will be looking at the scores of each candidate in different civil service job titles.
+2. Determined the dimensions and the dimension tables. There are 10 dimension tables: Date, Exam, List, List_Title, List_Agency, Candidate_Info, Veteran_Credit_Info, Parent_Lgy_Info, Sibling_Lgy_Info, and Residency_Info.
+3. Determined the facts and the fact table. The fact table is the Fact_Candidate table.
+4. MS Excel was used to brainsorm and plan the dimensions and the facts before actually busiling the schema.
+5. To build the schema, DbSchema was used.
+6. First, the role of "BigQuery Data Owner, BigQuery User, BigQuery Data Editor, and BigQuery Admin" was granted to my service account "cis4400-hw1-kyt@avian-silicon-418821.iam.gserviceaccount.com" so that I can use BigQuery and later connect with DbSchema.
+7. Enabled BigQuery API in GC.
+8. Created a BigQuery dataset
 
 
 
