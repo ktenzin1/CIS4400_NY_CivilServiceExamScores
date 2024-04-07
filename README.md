@@ -23,14 +23,23 @@ So step 1: Source data to Google Cloud (GC)
 Firstly, created a github repository called CIS4400_HW1, signed into my github account in Visual Studio Code (VS Code) and opened the github repository in VS Code, and wrote this README file.
 1. Created a new project on GC named "CIS4400 HW1".
 2. Created a new bucket in GC named "cis4400_hw1_kyt". The bucket is made public.
-3. Created a service account in GC and created a new key with the owner permission granted. Downloaded the configuration file with the service account key in JSON format and established connection link to the python script to extract source data and store it in GC.
-4. Used Google Colab to write python script to ingest the data from the source to the Google Cloud bucket.
+3. Created a service account in GC and created a new key with the owner permission granted. Downloaded the configuration file with the service account key in JSON format and established connection link to the python script to first extract source data and then store it in GC.
+4. Used Google Colab to write python script to gather data from the source and then updated the script to store the data to the Google Cloud bucket.
 5. Downloaded the scipt as sourceextraction.ipynb and uploaded it to Visual Studio Code.
 6. Executed the code in VS Code to ensure it works and that the source parquet file is stored successfully in the bucket in GC.
 7. Wrote a commit message and comitted and pushed the README and the python script into github from VS Code.
 8. Confirmed github repository in github updated.
-9. Data sourcing completed.
+9. Data sourcing and storage completed.
 
+Step 2: Dimensional Modeling
+1. Analyzed the business process and the requirements again. Since the project is to analyze the performance of the candidates in the NY civil service exam, the grain of dimensional modeling is each candidate. I will be looking at the scores of each candidate in different civil service job titles.
+2. Determined the dimensions and the dimension tables. There are 10 dimension tables: Date, Exam, List, List_Title, List_Agency, Candidate_Info, Veteran_Credit_Info, Parent_Lgy_Info, Sibling_Lgy_Info, and Residency_Info.
+3. Determined the facts and the fact table. The fact table is the Fact_Candidate table.
+4. MS Excel was used to brainsorm and plan the dimensions and the facts before actually busiling the schema.
+5. To build the schema, DbSchema was used.
+6. First, the role of "BigQuery Data Owner, BigQuery User, BigQuery Data Editor, and BigQuery Admin" was granted to my service account "cis4400-hw1-kyt@avian-silicon-418821.iam.gserviceaccount.com" so that I can use BigQuery and later connect with DbSchema.
+7. Enabled BigQuery API in GC.
+8. Created a BigQuery dataset
 
 
 
