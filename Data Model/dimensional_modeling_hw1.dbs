@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="cis4400_hw1" id="GoogleBigQuery-26bd" database="GoogleBigQuery" >
+	<schema name="draft" >
+		<table name="dim_candidate_info" prior="dim_candidate_" >
+			<column name="candidate_id" type="int64" jt="4" mandatory="y" />
+			<column name="first_name" type="string" jt="12" />
+			<column name="MI" type="string" jt="12" />
+			<column name="last_name" type="string" jt="12" />
+			<index name="pk_dim_candidate_info" unique="PRIMARY_KEY" >
+				<column name="candidate_id" />
+			</index>
+		</table>
+		<table name="dim_date" prior="dim_" >
+			<column name="date_id" type="int64" jt="4" mandatory="y" />
+			<column name="date_original_format" type="VARCHAR" length="100" jt="12" />
+			<column name="date_iso_format" type="date" jt="91" />
+			<column name="year" type="int64" jt="4" />
+			<column name="month" type="int64" jt="4" />
+			<column name="quarter" type="int64" jt="4" />
+			<column name="day_number" type="int64" jt="4" />
+			<column name="month_name" type="string" jt="12" />
+			<column name="day_name" type="string" jt="12" />
+			<column name="week_of_year" type="int64" jt="4" />
+			<column name="week_of_month" type="int64" jt="4" />
+			<index name="pk_dim_date" unique="PRIMARY_KEY" >
+				<column name="date_id" />
+			</index>
+		</table>
+		<table name="dim_exam" prior="Tbl" >
+			<column name="exam_id" type="int64" jt="4" mandatory="y" />
+			<column name="eaxm_no" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_exam" unique="PRIMARY_KEY" >
+				<column name="exam_id" />
+			</index>
+		</table>
+		<table name="dim_list" prior="Tbl" >
+			<column name="list_id" type="int64" jt="4" mandatory="y" />
+			<column name="list_no" type="VARCHAR" length="100" jt="12" />
+			<column name="group_no" type="VARCHAR" length="100" jt="12" />
+			<column name="list_div_code" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_list" unique="PRIMARY_KEY" >
+				<column name="list_id" />
+			</index>
+		</table>
+		<table name="dim_list_agency" prior="Tbl" >
+			<column name="list_agency_id" prior="list_id" type="int64" jt="4" mandatory="y" />
+			<column name="list_agency_code" type="VARCHAR" length="100" jt="12" />
+			<column name="list_agency_desc" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_list_agency" unique="PRIMARY_KEY" >
+				<column name="list_agency_id" />
+			</index>
+		</table>
+		<table name="dim_list_title" prior="Tbl" >
+			<column name="list_title_id" type="int64" jt="4" mandatory="y" />
+			<column name="list_title_code" type="VARCHAR" length="100" jt="12" />
+			<column name="list_title_description" type="VARCHAR" length="150" jt="12" />
+			<index name="pk_dim_list_title" unique="PRIMARY_KEY" >
+				<column name="list_title_id" />
+			</index>
+		</table>
+		<table name="dim_parent_lgy_info" prior="dim_parent_lgy_credit" >
+			<column name="parent_lgy_id" type="int64" jt="4" mandatory="y" />
+			<column name="parent_lgy_credit" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_parent_lgy_info" unique="PRIMARY_KEY" >
+				<column name="parent_lgy_id" />
+			</index>
+		</table>
+		<table name="dim_residency_info" prior="dim_residency" >
+			<column name="residency_id" type="int64" jt="4" mandatory="y" />
+			<column name="residency_credit" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_residency_info" unique="PRIMARY_KEY" >
+				<column name="residency_id" />
+			</index>
+		</table>
+		<table name="dim_sibling_credit_info" prior="Tbl" >
+			<column name="sibling_lgy_id" type="int64" jt="4" mandatory="y" />
+			<column name="sibling_lgy_credit" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_sibling_credit_info" unique="PRIMARY_KEY" >
+				<column name="sibling_lgy_id" />
+			</index>
+		</table>
+		<table name="dim_veteran_credit_info" prior="Tbl" >
+			<column name="veteran_credit_id" type="int64" jt="4" mandatory="y" />
+			<column name="veteran_credit" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_veteran_credit_info" unique="PRIMARY_KEY" >
+				<column name="veteran_credit_id" />
+			</index>
+		</table>
+		<table name="fact_candidate" prior="Tbl" >
+			<column name="fact_id" type="int64" jt="4" mandatory="y" />
+			<column name="exam_id" type="int64" jt="4" />
+			<column name="adj_final_avg" type="numeric" jt="2" />
+			<column name="list_id" type="int64" jt="4" />
+			<column name="list_title_id" type="int64" jt="4" />
+			<column name="list_agency_id" type="int64" jt="4" />
+			<column name="published_date_id" type="int64" jt="4" />
+			<column name="est_date_id" type="int64" jt="4" />
+			<column name="anniversary_date_id" type="int64" jt="4" />
+			<column name="extension_date_id" type="int64" jt="4" />
+			<column name="veteran_credit_id" type="int64" jt="4" />
+			<column name="parent_lgy_id" type="int64" jt="4" />
+			<column name="sibling_lgy_id" type="int64" jt="4" />
+			<column name="residency_id" type="int64" jt="4" />
+			<column name="load_date_id" type="int64" jt="4" />
+			<index name="pk_fact_candidate" unique="PRIMARY_KEY" >
+				<column name="fact_id" />
+			</index>
+			<fk name="fk_fact_candidate_dim_exam" to_schema="draft" to_table="dim_exam" >
+				<fk_column name="exam_id" pk="exam_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_list" to_schema="draft" to_table="dim_list" >
+				<fk_column name="list_id" pk="list_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_list_title" to_schema="draft" to_table="dim_list_title" >
+				<fk_column name="list_title_id" pk="list_title_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_list_agency" to_schema="draft" to_table="dim_list_agency" >
+				<fk_column name="list_agency_id" pk="list_agency_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_date" to_schema="draft" to_table="dim_date" >
+				<fk_column name="published_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_date_0" to_schema="draft" to_table="dim_date" >
+				<fk_column name="est_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_date_1" to_schema="draft" to_table="dim_date" >
+				<fk_column name="anniversary_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_date_2" to_schema="draft" to_table="dim_date" >
+				<fk_column name="extension_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_veteran_credit_info" to_schema="draft" to_table="dim_veteran_credit_info" >
+				<fk_column name="veteran_credit_id" pk="veteran_credit_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_parent_lgy_info" to_schema="draft" to_table="dim_parent_lgy_info" >
+				<fk_column name="parent_lgy_id" pk="parent_lgy_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_sibling_credit_info" to_schema="draft" to_table="dim_sibling_credit_info" >
+				<fk_column name="sibling_lgy_id" pk="sibling_lgy_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_residency_info" to_schema="draft" to_table="dim_residency_info" >
+				<fk_column name="residency_id" pk="residency_id" />
+			</fk>
+			<fk name="fk_fact_candidate_dim_date_3" to_schema="draft" to_table="dim_date" >
+				<fk_column name="load_date_id" pk="date_id" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-266a" show_column_type="y" show_relation="columns" >
+		<entity schema="draft" name="dim_candidate_info" color="C1D8EE" x="102" y="510" />
+		<entity schema="draft" name="dim_date" color="C1D8EE" x="51" y="51" />
+		<entity schema="draft" name="dim_exam" color="C1D8EE" x="357" y="51" />
+		<entity schema="draft" name="dim_list" color="C1D8EE" x="578" y="51" />
+		<entity schema="draft" name="dim_list_agency" color="C1D8EE" x="68" y="357" />
+		<entity schema="draft" name="dim_list_title" color="C1D8EE" x="833" y="51" />
+		<entity schema="draft" name="dim_parent_lgy_info" color="C1D8EE" x="850" y="391" />
+		<entity schema="draft" name="dim_residency_info" color="C1D8EE" x="459" y="646" />
+		<entity schema="draft" name="dim_sibling_credit_info" color="C1D8EE" x="850" y="544" />
+		<entity schema="draft" name="dim_veteran_credit_info" color="C1D8EE" x="850" y="238" />
+		<entity schema="draft" name="fact_candidate" color="C1D8EE" x="493" y="255" />
+	</layout>
+</project>
