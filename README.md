@@ -1,23 +1,24 @@
-# CIS4400_HW1 (Private GitHub project as of now)
+# CIS4400_HW1 
 Overview: 
-This project involves extracting source data from Data.gov, and storing it first in Google Cloud. The source data consists of all candidates in NY who passed a Civil Service exam, ranked in the order of their scores. After data is stored in Google Cloud, data will be cleaned, transformed and finally loaded into Storage S3 data warehouse.
+This project involves extracting source data from Data.gov, and storing it first in Google Cloud. The source data consists of all candidates in NY who passed a Civil Service exam, ranked in the order of their scores. After data is stored in Google Cloud, dimensional modeling will be prepared using DbSchema to create the scehma for the datawarehouse in Google BigQuery. This project will pave way to the next project where data will be cleaned, transformed and finally loaded into the BigQuery data warehouse.
 
-Requirements: Through this project, I want to know which civil service job had candidates receiving the highest and lowest civil service exam scores (Adjusted Final Average). For that I will need to group the candidates in groups based on the civil service job for which they are candidates for and find the average scores in each group. Then I would compare the group scores.  
+Requirements: Through this project, I want to know which civil service job had candidates receiving the highest and lowest civil service exam scores (Adjusted Final Average). For that I will need to group the candidates in groups based on the civil service job for which they are candidates for and find the average scores in each group. Then I would compare the group scores. 
 
 I also want to know if candidates from "open competition" had higher or lower average scores compared to those not from "open competition" but those entering directly through appointing agencies. For that I will need to find the average scores of the two groups by first grouping candidates in the two groups.
 
 For each candidate, the Adjusted Final Average (AFA) consists of the individual test scores and any additional credits granted for example credits for parents/siblings (FDNY, NYPD, or a First Responder) lost during or as a result of 911, credits for meeting certain years of NY residency, etc. So, for the third requirement, I also want to find out which additional credit category, had candidates receiving the highest and lowest credits from. For this, I will need to group candidates by the additional credits category and then count the number of candidates receiving credits from each category. 
 
 Data Source Link: https://catalog.data.gov/dataset/civil-service-list-active
-CSV Download Link: [https://data.ny.gov/api/views/8wbx-tsch/rows.csv?accessType=DOWNLOAD&sorting=true](https://data.cityofnewyork.us/api/views/vx8i-nprf/rows.csv?accessType=DOWNLOAD)
+CSV Download Link: https://data.cityofnewyork.us/api/views/vx8i-nprf/rows.csv?accessType=DOWNLOAD
 
-Explanation of data source or where the data comes from (Business Process): The data in Data.gov comes from the Department of Citywide Administrative Services (DCAS). DCAS would be maintaining a database for the all of the candidates who takes an exam for a civil service job in NY. The grain of the data is each candidate who took an exam. Every time a candidate appears for an exam, this database would be updated with the information that is now available for public use on data.gov. 
+Explanation of data source or where the data comes from (Business Process): The data in Data.gov comes from the Department of Citywide Administrative Services (DCAS). DCAS would be maintaining a database for all of the candidate who takes an exam for a civil service job in NY. The grain of the data is each candidate who takes a civil service exam. Every time a candidate appears for an exam, this database would be updated with the information which will later be published and be available for public use on data.gov. 
 
 Some of this information includes a candidate's name, exam number, list number, adjusted final average which includes a candidate's score and any credits given, credits given for meeting NY residency, credits for a lost parent/sibling (FDNY, NYPD, or a First Responder) during or as a result of 911, date the list was published for review for public and appointing agencies (published date), the date the list was submitted to agencies so they can consider eligible candidates for appointments (established date), etc. 
 
 It can be understood that the data for each candidate is added to the data.gov dataset on the "Published Date". On this date, a candidate's record will be available on public databases including data.gov after which candidates could check and review their scores and information pubished and inform DCAS if they find any discrepancies. However, not all candidates have a "published date" and it is unclear if it didn't have one at all or if a candidate requested that the date not be made public. 
 
-Link for the data dictionary: Civil Service List_Active_Definitions.xlsx
+Link for the data dictionary: 
+(https://www.bing.com/ck/a?!&&p=2ebc02bb5110134cJmltdHM9MTcxMjQ0ODAwMCZpZ3VpZD0wNmZhMjI0Mi1hYTJiLTY3OTQtM2ZiZS0zNjFiYWIwMjY2ZGQmaW5zaWQ9NTI0Mw&ptn=3&ver=2&hsh=3&fclid=06fa2242-aa2b-6794-3fbe-361bab0266dd&psq=Civil+Service+List_Active_Definitions.xlsx&u=a1aHR0cHM6Ly9kYXRhLmNpdHlvZm5ld3lvcmsudXMvYXBpL3ZpZXdzLzhpY3ItNTlxYi9maWxlcy8wYmJjMjRhZC1iMzgwLTQ1NTItYjY3OC04N2JiNDk0NDE4MGQ_ZG93bmxvYWQ9dHJ1ZSZmaWxlbmFtZT1DaXZpbCUyMFNlcnZpY2UlMjBMaXN0X0FjdGl2ZV9EZWZpbml0aW9ucy54bHN4&ntb=1)
 
 So step 1: Source data to Google Cloud (GC)
 Firstly, created a github repository called CIS4400_HW1, signed into my github account in Visual Studio Code (VS Code) and opened the github repository in VS Code, and wrote this README file.
@@ -27,7 +28,7 @@ Firstly, created a github repository called CIS4400_HW1, signed into my github a
 4. Used Google Colab to write python script to gather data from the source and then updated the script to store the data to the Google Cloud bucket.
 5. Downloaded the scipt as sourceextraction.ipynb and uploaded it to Visual Studio Code.
 6. Executed the code in VS Code to ensure it works and that the source parquet file is stored successfully in the bucket in GC.
-7. Wrote a commit message and comitted and pushed the README and the python script into github from VS Code.
+7. Wrote a commit message and committed and pushed the README and the python script into github from VS Code.
 8. Confirmed github repository in github updated.
 9. Data sourcing and storage completed.
 
@@ -40,8 +41,9 @@ Step 2: Dimensional Modeling
 6. First, the role of "BigQuery Data Owner, BigQuery User, BigQuery Data Editor, and BigQuery Admin" was granted to my service account "cis4400-hw1-kyt@avian-silicon-418821.iam.gserviceaccount.com" so that I can use BigQuery and later connect with DbSchema.
 7. Enabled BigQuery API in GC.
 8. Created a BigQuery dataset named cis4400_hw1.
-9. As dimension tables and fact table were created with attributes and relationships (primary key, foreign key) in DbSchema, tables were created in BigQuery tus creating a datawarehouse in which data could now be loaded.
+9. As dimension tables and fact table were created with attributes and relationships (primary key, foreign key) in DbSchema, tables were created in BigQuery thus creating a datawarehouse in which data could now be loaded.
 10. The SQL script for the dimensional modeling was saved from DbSchema.
+11. All documents were committed and pushed to GitHub.
 
 
 
