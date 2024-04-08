@@ -45,6 +45,8 @@ Step 2: Dimensional Modeling
 10. The SQL script for the dimensional modeling was saved from DbSchema.
 11. All documents were committed and pushed to GitHub.
 
+Google Cloud Project ID: avian-silicon-418821
+Google Cloud Service Account: service-910989056595@gs-project-accounts.iam.gserviceaccount.com
 
 
 
