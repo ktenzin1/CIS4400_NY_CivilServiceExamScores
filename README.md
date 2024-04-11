@@ -2,6 +2,8 @@
 Overview: 
 This project involves extracting source data from Data.gov, and storing it first in Google Cloud. The source data consists of all candidates in NY who passed a Civil Service exam, ranked in the order of their scores. After data is stored in Google Cloud, dimensional modeling will be prepared using DbSchema to create the schema for the datawarehouse in Google BigQuery. This project will pave way to the next project where data will be cleaned, transformed and finally loaded into the BigQuery data warehouse.
 
+Tools Used: Google Cloud, BigQuery, DbScehma, Google Colab, Visual Studio Code
+
 Requirements: Through this project, I want to know which civil service job had candidates receiving the highest and lowest civil service exam scores (Adjusted Final Average). For that I will need to group the candidates in groups based on the civil service job for which they are candidates for and find the average scores in each group. Then I would compare the group scores. 
 
 I also want to know if candidates from "open competition" had higher or lower average scores compared to those not from "open competition" but those entering directly through appointing agencies. For that I will need to find the average scores of the two groups by first grouping candidates in the two groups.
