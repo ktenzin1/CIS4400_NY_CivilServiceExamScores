@@ -63,6 +63,9 @@ It can be seen that compared to earlier years, since around 2018, there was an i
 Second dashboard: Credits Provided To Civil Service Exam Candidates Over The Years
 It can be seen that although in 2014, there was a sharp decrease in the number of candidates receiving additional credits, between around 2016 to 2018, there was an increase in candidates who received credits for parents/siblings (FDNY, NYPD, or a First Responder) lost during or as a result of 911, credits for meeting certain years of NY residency, etc. Although this then decreased around 2018, soon by 2019, the numbers started increasing once again. It can be intersting to find out in the future, with further research and analysis, if covid 19 had an impact on this. 
 
+Tableau Link: https://public.tableau.com/authoring/NYCivilServiceExamScoresDashboard/Dashboard1#1
+
+
 Google Cloud BigQuery Project ID: avian-silicon-418821 (Access given to professor)
 Google Cloud Bucket Name: cis4400_hw1_kyt (Public)
 Google Cloud Service Account: service-910989056595@gs-project-accounts.iam.gserviceaccount.com
