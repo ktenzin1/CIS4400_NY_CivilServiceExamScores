@@ -18,4 +18,4 @@ Firstly, created a github repository called CIS4400_HW1, signed into my github a
 
 # Dimensional modeling was updated for Redshift.
 
-12. The transformed data was loaded into the tables in Redshift.
+12. The transformed data was loaded into the tables in BigQuery.
