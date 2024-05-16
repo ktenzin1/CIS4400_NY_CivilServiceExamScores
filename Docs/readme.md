@@ -1,1 +1,1 @@
-#Data dictionary and data analysis files are stored here. Both are excel files
+# Data dictionary (both the original and the updated) and data analysis files (excel) are stored here. 

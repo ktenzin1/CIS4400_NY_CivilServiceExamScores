@@ -10,3 +10,12 @@ Firstly, created a github repository called CIS4400_HW1, signed into my github a
 7. Wrote a commit message and comitted and pushed the README and the python script into github from VS Code.
 8. Confirmed github repository in github updated.
 9. Data sourcing and storage completed.
+
+# Dimensional modeling was created. Empty tables were created in BigQuery. 
+
+10. Used python script to do ETL. Extracted data from Google Cloud bucket and made a copy of the dataframe in df_copy. 
+11. Performed data cleaning, reformatting and transformation on the copy of the dataframe.
+
+# Dimensional modeling was updated for Redshift.
+
+12. The transformed data was loaded into the tables in Redshift.

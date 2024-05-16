@@ -47,6 +47,16 @@ Step 2: Dimensional Modeling
 10. The SQL script for the dimensional modeling was saved from DbSchema.
 11. All documents were committed and pushed to GitHub.
 
+Step 3: Extraction and Transformation
+1. Used python script to do ETL. Extracted data from Google Cloud bucket and made a copy of the dataframe in df_copy. 
+2. Performed data cleaning, reformatting and transformation on the copy of the dataframe.
+
+Step 4: Updated Dimensional Modeling
+1. Dimensional modeling was updated for Redshift.
+
+Step 5: Loading
+1. The transformed data was loaded into the tables in Redshift.
+
 Google Cloud BigQuery Project ID: avian-silicon-418821 (Access given to professor)
 Google Cloud Bucket Name: cis4400_hw1_kyt (Public)
 Google Cloud Service Account: service-910989056595@gs-project-accounts.iam.gserviceaccount.com
