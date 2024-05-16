@@ -4,11 +4,9 @@ This project involves extracting source data from Data.gov, and storing it first
 
 Tools Used: Google Cloud, BigQuery, DbSchema, Google Colab, Visual Studio Code
 
-Requirements: Through this project, I want to know which civil service job had candidates receiving the highest and lowest civil service exam scores (Adjusted Final Average). For that I will need to group the candidates in groups based on the civil service job for which they are candidates for and find the average scores in each group. Then I would compare the group scores. 
+Requirements: Through this project, I want to know how the adjusted final averages have changed over the years. I also want to know how the number of candidates receiving additional credits have changed over the years. 
 
-I also want to know if candidates from "open competition" had higher or lower average scores compared to those not from "open competition" but those entering directly through appointing agencies. For that I will need to find the average scores of the two groups by first grouping candidates in the two groups.
-
-For each candidate, the Adjusted Final Average (AFA) consists of the individual test scores and any additional credits granted for example credits for parents/siblings (FDNY, NYPD, or a First Responder) lost during or as a result of 911, credits for meeting certain years of NY residency, etc. So, for the third requirement, I also want to find out which additional credit category, had candidates receiving the highest and lowest credits from. For this, I will need to group candidates by the additional credits category and then count the number of candidates receiving credits from each category. 
+For each candidate, the Adjusted Final Average (AFA) consists of the individual test scores and any additional credits granted for example credits for parents/siblings (FDNY, NYPD, or a First Responder) lost during or as a result of 911, credits for meeting certain years of NY residency, etc. 
 
 Data Source Link: https://catalog.data.gov/dataset/civil-service-list-active
 CSV Download Link: https://data.cityofnewyork.us/api/views/vx8i-nprf/rows.csv?accessType=DOWNLOAD
@@ -55,7 +53,15 @@ Step 4: Updated Dimensional Modeling
 1. Dimensional modeling was updated for Redshift.
 
 Step 5: Loading
-1. The transformed data was loaded into the tables in Redshift.
+1. The transformed data was loaded into the tables in BigQuery.
+
+# Data Visualization
+Tableau Public was used to create a dashboard of data visualization. 
+First dashboard: Adjusted Final Averages Over The Years
+It can be seen that compared to earlier years, since around 2018, there was an increasing number of people who scored really high on their civil service exams.
+
+Second dashboard: Credits Provided To Civil Service Exam Candidates Over The Years
+It can be seen that although in 2014, there was a sharp decrease in the number of candidates receiving additional credits, between around 2016 to 2018, there was an increase in candidates who received credits for parents/siblings (FDNY, NYPD, or a First Responder) lost during or as a result of 911, credits for meeting certain years of NY residency, etc. Although this then decreased around 2018, soon by 2019, the numbers started increasing once again. It can be intersting to find out in the future, with further research and analysis, if covid 19 had an impact on this. 
 
 Google Cloud BigQuery Project ID: avian-silicon-418821 (Access given to professor)
 Google Cloud Bucket Name: cis4400_hw1_kyt (Public)
