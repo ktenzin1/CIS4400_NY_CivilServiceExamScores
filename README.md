@@ -66,9 +66,7 @@ It can be seen that although in 2014, there was a sharp decrease in the number o
 Tableau Link: https://public.tableau.com/authoring/NYCivilServiceExamScoresDashboard/Dashboard1#1
 
 
-Google Cloud BigQuery Project ID: avian-silicon-418821 (Access given to professor)
-Google Cloud Bucket Name: cis4400_hw1_kyt (Public)
-Google Cloud Service Account: service-910989056595@gs-project-accounts.iam.gserviceaccount.com
+
 
 
 
