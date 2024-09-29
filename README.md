@@ -1,8 +1,9 @@
-# CIS4400_HW1 
+# CIS4400 NY Civil Service Exam Score ETL and Analysis Project
 Overview: 
-This project involves extracting source data from Data.gov, and storing it first in Google Cloud. The source data consists of all candidates in NY who passed a Civil Service exam, ranked in the order of their scores. After data is stored in Google Cloud, dimensional modeling will be prepared using DbSchema to create the schema for the datawarehouse in Google BigQuery. This project will pave way to the next project where data will be cleaned, transformed and finally loaded into the BigQuery data warehouse.
+In this project, I extracted source data from Data.gov, and stored it first in Google Cloud. The source data consists of all candidates in NY who passed a Civil Service exam, ranked in the order of their scores. After data is stored in Google Cloud, dimensional modeling was prepared using DbSchema to create the schema for the datawarehouse in Google BigQuery. Data was then cleaned, transformed and finally loaded into the BigQuery data warehouse.
 
 Tools Used: Google Cloud, BigQuery, DbSchema, Google Colab, Visual Studio Code
+Languages Used: Python and SQL
 
 Requirements: Through this project, I want to know how the adjusted final averages have changed over the years. I also want to know how the number of candidates receiving additional credits have changed over the years. 
 
@@ -21,7 +22,7 @@ Link for the data dictionary:
 (https://www.bing.com/ck/a?!&&p=2ebc02bb5110134cJmltdHM9MTcxMjQ0ODAwMCZpZ3VpZD0wNmZhMjI0Mi1hYTJiLTY3OTQtM2ZiZS0zNjFiYWIwMjY2ZGQmaW5zaWQ9NTI0Mw&ptn=3&ver=2&hsh=3&fclid=06fa2242-aa2b-6794-3fbe-361bab0266dd&psq=Civil+Service+List_Active_Definitions.xlsx&u=a1aHR0cHM6Ly9kYXRhLmNpdHlvZm5ld3lvcmsudXMvYXBpL3ZpZXdzLzhpY3ItNTlxYi9maWxlcy8wYmJjMjRhZC1iMzgwLTQ1NTItYjY3OC04N2JiNDk0NDE4MGQ_ZG93bmxvYWQ9dHJ1ZSZmaWxlbmFtZT1DaXZpbCUyMFNlcnZpY2UlMjBMaXN0X0FjdGl2ZV9EZWZpbml0aW9ucy54bHN4&ntb=1)
 
 So step 1: Source data to Google Cloud (GC)
-Firstly, created a github repository called CIS4400_HW1, signed into my github account in Visual Studio Code (VS Code) and opened the github repository in VS Code, and wrote this README file.
+Firstly, I created a github repository called CIS4400_HW1, signed into my github account in Visual Studio Code (VS Code) and opened the github repository in VS Code, and wrote this README file.
 1. Created a new project on GC named "CIS4400 HW1".
 2. Created a new bucket in GC named "cis4400_hw1_kyt". The bucket is made public.
 3. Created a service account in GC and created a new key with the owner permission granted. Downloaded the configuration file with the service account key in JSON format and established connection link to the python script to first extract source data and then store it in GC.
@@ -33,7 +34,7 @@ Firstly, created a github repository called CIS4400_HW1, signed into my github a
 9. Data sourcing and storage completed.
 
 Step 2: Dimensional Modeling
-1. Analyzed the business process and the requirements again. Since the project is to analyze the performance of the candidates in the NY civil service exam, the grain of dimensional modeling is each candidate. I will be looking at the scores of each candidate in different civil service job titles.
+1. Analyzed the business process and the requirements again. Since the project is to analyze the performance of the candidates in the NY civil service exam, the grain of dimensional modeling is each candidate. I looked at the scores of each candidate in different civil service job titles.
 2. Determined the dimensions and the dimension tables. There are 10 dimension tables: Date, Exam, List, List_Title, List_Agency, Candidate_Info, Veteran_Credit_Info, Parent_Lgy_Info, Sibling_Lgy_Info, and Residency_Info.
 3. Determined the facts and the fact table. The fact table is the Fact_Candidate table.
 4. MS Excel was used to brainsorm and plan the dimensions and the facts before actually building the schema.
