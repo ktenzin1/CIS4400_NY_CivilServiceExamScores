@@ -2,8 +2,9 @@
 Overview: 
 In this project, I extracted source data from Data.gov, and stored it first in Google Cloud. The source data consists of all candidates in NY who passed a Civil Service exam, ranked in the order of their scores. After data is stored in Google Cloud, dimensional modeling was prepared using DbSchema to create the schema for the datawarehouse in Google BigQuery. Data was then cleaned, transformed and finally loaded into the BigQuery data warehouse.
 
-Tools Used: Google Cloud, BigQuery, DbSchema, Google Colab, Visual Studio Code
-Languages Used: Python and SQL
+Tools Used: Google Cloud, BigQuery, DbSchema, Google Colab, Visual Studio Code.
+
+Languages Used: Python and SQL.
 
 Requirements: Through this project, I want to know how the adjusted final averages have changed over the years. I also want to know how the number of candidates receiving additional credits have changed over the years. 
 
